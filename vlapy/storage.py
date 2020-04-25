@@ -27,6 +27,15 @@ import xarray as xr
 import numpy as np
 
 
+def get_paths(base_path):
+    return {
+        "base_path": base_path,
+        "efield_path": os.path.join(base_path, "electric_field.nc"),
+        "driver_efield_path": os.path.join(base_path, "driver_electric_field.nc"),
+        "f_path": os.path.join(base_path, "dist_func.nc"),
+    }
+
+
 class StorageManager:
     def __init__(self, xax, vax, tax, base_path, store_f=None):
         """
@@ -45,12 +54,7 @@ class StorageManager:
         :param store_f:
         """
 
-        self.base_path = base_path
-        self.efield_path = os.path.join(base_path, "electric_field_vs_time.nc")
-        self.driver_efield_path = os.path.join(
-            base_path, "driver_electric_field_vs_time.nc"
-        )
-        self.f_path = os.path.join(base_path, "dist_func_vs_time.nc")
+        self.paths = get_paths(base_path)
 
         self.initialize_temporary_storage(xax, vax, tax, store_f)
         self.__init_electric_field_storage(tax=tax, xax=xax)
