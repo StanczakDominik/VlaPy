@@ -38,16 +38,17 @@ This system can be transformed into a linear system of equations in the form of
     C_{ee} f^{n+1} = f^{n}
 
 where :math:`C_{ee}` is a matrix that corresponds to the finite difference operator stencil. In 1D, :math:`C_{ee}`
-tridiagonal matrix.  that can be solved directly.
+is a tridiagonal matrix that can be solved directly.
 
 
 Tests
 ======
 
 This solver is tested to
-1) return df/dt = 0 if a Maxwell-Boltzmann distribution is provided as input
-2) conserve energy and density
-3) relax to a Maxwellian of the right temperature and without a drift velocity
+
+1. return :math:`df/dt = 0` if a Maxwell-Boltzmann distribution is provided as input
+2. conserve energy and density
+3. relax to a Maxwellian of the right temperature and without a drift velocity
 
 
 ...this page is in development...
